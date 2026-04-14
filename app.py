@@ -179,7 +179,7 @@ def main():
     # Load data
     df = load_data()
     df_clean = preprocess_data(df)
-    X_scaled, df_encoded = encode_and_scale_data(df)
+    X_scaled, df_encoded = encode_and_scale_data(df_clean)
     X_pca, pca, explained_var = perform_pca(X_scaled)
     wcss, silhouette_scores, optimal_k = find_optimal_clusters(X_pca)
     labels_kmeans, labels_agg = cluster_customers(X_pca, n_clusters=optimal_k)
